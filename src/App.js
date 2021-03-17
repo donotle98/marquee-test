@@ -166,12 +166,8 @@ const StyledWrapper = styled.main`
         right: 0;
         left: 0;
         max-width: 1440px;
+        display: flex;
         flex-direction: column;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 2fr));
-        align-self: center;
-        min-height: auto;
-
         .content {
             height: auto;
             display: flex;
@@ -335,7 +331,7 @@ const StyledWrapper = styled.main`
         }
     }
 
-    @media all and (min-width: 680px) {
+    @media all and (min-width: 850px) {
         .main-content {
             position: absolute;
             top: 30%;
@@ -343,13 +339,9 @@ const StyledWrapper = styled.main`
             left: 10%;
             padding-top: 3rem;
 
-            .headline {
-                margin-bottom: 12rem;
-            }
-            .subhead {
-                padding-top: 4rem;
-                margin-top: 0;
-            }
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
         }
         .cta {
             display: flex;
@@ -365,7 +357,16 @@ const StyledWrapper = styled.main`
                 padding-right: 23%;
             }
         }
-    } ;
+    }
+
+    @keyframes mobileSlidIn {
+        0% {
+            transform: translateX(200%);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
 `;
 
 export default App;

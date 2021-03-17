@@ -178,7 +178,7 @@ const StyledWrapper = styled.main`
         .headline {
             width: 100%;
             font-size: calc(
-                60px + (120 - 60) * ((100vw - 320px) / (1440 - 320))
+                60px + (100 - 60) * ((100vw - 320px) / (1440 - 320))
             );
             font-family: HelveticaNeue;
             color: #ffffff;
@@ -187,7 +187,7 @@ const StyledWrapper = styled.main`
             align-items: center;
             text-align: left;
             font-weight: bold;
-            animation: slideInFromTop 2s;
+            animation: ease-in-out slideInFromTop 2s;
         }
 
         .subhead {
@@ -203,7 +203,7 @@ const StyledWrapper = styled.main`
             margin: auto;
             margin-top: 2rem;
             float: right;
-            animation: slideInSubtext 2.5s;
+            animation: ease-in-out slideInSubtext 2s;
         }
     }
 
@@ -223,8 +223,7 @@ const StyledWrapper = styled.main`
         z-index: 100;
         align-items: center;
         justify-content: center;
-        margin: 1rem 11% 0 10%;
-        animation: ease-out -1s slideUp 2s;
+        animation: ease-in-out slideUp 2s;
 
         .cta-text {
             font-size: calc(
@@ -298,7 +297,7 @@ const StyledWrapper = styled.main`
 
     @keyframes slideInFromTop {
         0% {
-            transform: translateY(-100%);
+            transform: translateY(-200%);
         }
         100% {
             transform: translateY(0);
@@ -307,7 +306,7 @@ const StyledWrapper = styled.main`
 
     @keyframes slideInSubtext {
         0% {
-            transform: translateY(-200%);
+            transform: translateY(-400%);
         }
         100% {
             transform: translateY(0);
@@ -338,15 +337,25 @@ const StyledWrapper = styled.main`
             right: 11%;
             left: 10%;
             padding-top: 3rem;
-
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
+            margin: auto;
+
+            .headline {
+                margin-bottom: 12rem;
+            }
+
+            .subhead {
+                padding-top: 1rem;
+            }
         }
         .cta {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            margin: auto;
+            margin: 1rem 11% 0rem 10%;
 
             .cta-text {
                 padding-left: 5%;

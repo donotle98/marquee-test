@@ -62,7 +62,7 @@ const App = () => {
     return (
         <StyledWrapper>
             <header>
-                <img src={`${logo}`}></img>
+                <img src={`${logo}`} alt='logo for the website'></img>
                 <button>Contact Us</button>
             </header>
             <nav>

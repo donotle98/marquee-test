@@ -43,7 +43,12 @@ const App = () => {
                                         {block.cta}
                                     </span>
                                     <span className='cta-button'>
-                                        LET'S TALK.
+                                        <a href='#'>
+                                            LET'S TALK.{' '}
+                                            <span className='right-arrow'>
+                                                &#8594;
+                                            </span>
+                                        </a>
                                     </span>
                                 </div>
                             </div>
@@ -61,6 +66,7 @@ const App = () => {
 
     return (
         <StyledWrapper>
+            {/*Static header and nav*/}
             <header>
                 <img src={`${logo}`} alt='logo for the website'></img>
                 <button>Contact Us</button>
@@ -74,6 +80,12 @@ const App = () => {
                                   <li key={index}>
                                       <button
                                           onClick={() => setSlug(page.slug)}
+                                          style={{
+                                              color:
+                                                  page.slug === slug
+                                                      ? '#FFBF04'
+                                                      : '#fff',
+                                          }}
                                       >
                                           {page.title}
                                       </button>
@@ -83,6 +95,7 @@ const App = () => {
                         : null}
                 </ul>
             </nav>
+            {/*Handle main content and cta loading from a function*/}
             <main>{handlePage()}</main>
         </StyledWrapper>
     );
@@ -157,7 +170,7 @@ const StyledWrapper = styled.main`
         z-index: -100;
         background-size: cover;
         background-position: center center;
-        animation: fadeInAnimation 2.5s;
+        animation: fadeInAnimation 1.5s;
     }
 
     .main-content {
@@ -237,10 +250,22 @@ const StyledWrapper = styled.main`
         }
 
         .cta-button {
-            padding-top: 1rem;
-            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            font-size: 0.8rem;
             letter-spacing: 1px;
-            font-weight: bold;
+            height: 4rem;
+
+            a {
+                text-decoration: none;
+                color: black;
+            }
+
+            .right-arrow {
+                color: #ffbf04;
+                font-size: 1.3rem;
+                margin-left: 0.5rem;
+            }
         }
     }
 
@@ -341,6 +366,7 @@ const StyledWrapper = styled.main`
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
             margin: auto;
+            text-align: left;
 
             .headline {
                 margin-bottom: 12rem;
